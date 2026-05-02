@@ -126,7 +126,7 @@ The pairwise ranker was removed from the final pipeline after ablation showed it
 
 If you use this code or results, please cite:
 
-> Daxlia. *RéseauFlux: Machine Learning-Guided Ranking of Metabolic Interventions for Succinate Overproduction in Escherichia coli.* Zenodo (2025). DOI: [10.5281/zenodo.19984812](https://doi.org/10.5281/zenodo.19984812)
+> Daxlia. *RéseauFlux: Machine Learning-Guided Ranking of Metabolic Interventions for Succinate Overproduction in Escherichia coli.* Zenodo (2026). DOI: [10.5281/zenodo.19984812](https://doi.org/10.5281/zenodo.19984812)
 
 ---
 
