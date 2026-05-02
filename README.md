@@ -3,7 +3,7 @@
 A machine learning pipeline for genome-scale ranking of metabolic interventions, demonstrated on aerobic succinate production in *Escherichia coli* (iJO1366).
 
 > **Author:** Daxlia  
-> **Repository:** [github.com/Daxlia/RéseauFlux](https://github.com/Daxlia/RéseauFlux)  
+> **Repository:** [github.com/Daxlia/RéseauFlux](https://github.com/Daxlia/ReseauFlux)  
 > **License:** Modified MIT with Citation Requirement (see `LICENSE`)
 
 ---
