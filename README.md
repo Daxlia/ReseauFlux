@@ -1,5 +1,5 @@
 # RéseauFlux — ML-Guided Metabolic Engineering Pipeline
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19984812.svg)](https://doi.org/10.5281/zenodo.19984812) [![License](https://img.shields.io/badge/License-Modified%20MIT%20with%20Citation%20Requirement-0D7000.svg)](LICENSE) [![AI Disclosure](https://img.shields.io/badge/AI_Disclosure-Claude_%2B_DeepSeek_%2B_Grok_%2B_ChatGPT-orange.svg)](AI_DISCLOSURE.md)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19984812.svg)](https://doi.org/10.5281/zenodo.19984811) [![License](https://img.shields.io/badge/License-Modified%20MIT%20with%20Citation%20Requirement-0D7000.svg)](LICENSE) [![AI Disclosure](https://img.shields.io/badge/AI_Disclosure-Claude_%2B_DeepSeek_%2B_Grok_%2B_ChatGPT-orange.svg)](AI_DISCLOSURE.md)
 
 A machine learning pipeline for genome-scale ranking of metabolic interventions, demonstrated on aerobic succinate production in *Escherichia coli* (iJO1366).
 
@@ -126,7 +126,7 @@ The pairwise ranker was removed from the final pipeline after ablation showed it
 
 If you use this code or results, please cite:
 
-> Daxlia. *RéseauFlux: Machine Learning-Guided Ranking of Metabolic Interventions for Succinate Overproduction in Escherichia coli.* Zenodo (2026). DOI: [10.5281/zenodo.19984812](https://doi.org/10.5281/zenodo.19984812)
+> Daxlia. *RéseauFlux: Machine Learning-Guided Ranking of Metabolic Interventions for Succinate Overproduction in Escherichia coli.* Zenodo (2026). DOI: [10.5281/zenodo.19984811](https://doi.org/10.5281/zenodo.19984811)
 ---
 
 ## Compute
