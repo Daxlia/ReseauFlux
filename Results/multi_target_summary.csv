@@ -1,4 +1,0 @@
-target,rxn_id,cv_rho,topk_prec,wt_max_target,best_single_flux,best_single_rxn
-succinate,EX_succ_e,0.5571986329600095,0.4722222222222222,16.2436,16.3836,ATPS4rpp(ko)
-L-malate,EX_mal__L_e,0.445,0.333,17.4931,16.7925,ATPM(ko)
-acetate,EX_ac_e,0.491,0.367,27.7718,27.8005,ATPS4rpp(ko)

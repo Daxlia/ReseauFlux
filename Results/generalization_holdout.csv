@@ -1,2 +1,0 @@
-n_train_rxns,n_test_rxns,n_train_samp,n_test_samp,spearman_rho,topk_precision,top5_precision,true_top5,pred_top5
-210,90,630,270,0.6019452161009768,0.48148148148148145,0.2,"['G6PDH2r(ko)', 'GLUDy(ko)', 'GND(ko)', 'O2tex(ko)', 'TKT1(ko)']","['ACACT1r(ko)', 'ACACT2r(ko)', 'ACACT6r(ko)', 'ECOAH7(ko)', 'TKT1(ko)']"
