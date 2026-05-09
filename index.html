@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RéseauFlux — ML-Guided Metabolic Engineering | COBRApy + FBA</title>
+
+  <meta
+    name="description"
+    content="ML-guided ranking of metabolic interventions in genome-scale E. coli models using COBRApy and flux balance analysis."
+  />
+
+  <meta
+    name="keywords"
+    content="bioinformatics, metabolic engineering, flux balance analysis, COBRApy, genome-scale metabolic models, systems biology, machine learning, E. coli, FBA, synthetic biology"
+  />
+
+  <meta name="author" content="Daxlia" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="RéseauFlux — ML-Guided Metabolic Engineering" />
+  <meta
+    property="og:description"
+    content="Machine learning-guided ranking of metabolic interventions in genome-scale E. coli models using COBRApy and flux balance analysis."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://daxlia.github.io/ReseauFlux/" />
+  <meta
+    property="og:image"
+    content="https://raw.githubusercontent.com/Daxlia/ReseauFlux/main/Results/results_summary.png"
+  />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="canonical" href="https://daxlia.github.io/ReseauFlux/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "RéseauFlux",
+    "author": {
+      "@type": "Person",
+      "name": "Daxlia"
+    },
+    "programmingLanguage": "Python",
+    "applicationCategory": "Bioinformatics",
+    "description": "ML-guided ranking of metabolic interventions in genome-scale E. coli models using COBRApy and flux balance analysis.",
+    "codeRepository": "https://github.com/Daxlia/ReseauFlux",
+    "keywords": [
+      "bioinformatics",
+      "metabolic engineering",
+      "flux balance analysis",
+      "COBRApy",
+      "machine learning",
+      "systems biology"
+    ]
+  }
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Inter, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(5rem, 10vw, 9rem);
+      line-height: 0.95;
+      font-family: Georgia, serif;
+      font-weight: 400;
+      letter-spacing: -0.05em;
+    }
+
+    .subtitle {
+      margin-top: 28px;
+      max-width: 900px;
+      font-size: clamp(1.2rem, 2vw, 2rem);
+      line-height: 1.6;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .tag {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: 12px 18px;
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 42px;
+    }
+
+    .btn {
+      padding: 14px 24px;
+      border-radius: 18px;
+      transition: 0.25s ease;
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .btn.primary {
+      background: #fff;
+      color: #000;
+      border: none;
+    }
+
+    .btn.secondary:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .note {
+      margin-top: 18px;
+      max-width: 760px;
+      color: rgba(255,255,255,0.35);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    section {
+      padding: 120px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-family: Georgia, serif;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .abstract {
+      max-width: 900px;
+      color: rgba(255,255,255,0.7);
+      font-size: 18px;
+      line-height: 2;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .card {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 32px;
+      padding: 42px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .card small {
+      color: rgba(255,255,255,0.4);
+      font-size: 13px;
+    }
+
+    .card h3 {
+      font-size: 4rem;
+      margin-top: 22px;
+      font-family: Georgia, serif;
+      font-weight: 400;
+    }
+
+    .card p {
+      margin-top: 12px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .card .caption {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .pipeline {
+      display: grid;
+      gap: 18px;
+      margin-top: 50px;
+    }
+
+    .step {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 24px;
+      color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .results-image {
+      margin-top: 50px;
+      border-radius: 40px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      background: #050505;
+    }
+
+    .results-image img {
+      width: 100%;
+      display: block;
+      filter: grayscale(100%) contrast(1.15);
+      transition: transform 0.6s ease;
+    }
+
+    .results-image:hover img {
+      transform: scale(1.01);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      padding: 40px;
+    }
+
+    .overlay h3 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-family: Georgia, serif;
+      font-weight: 400;
+      max-width: 900px;
+      line-height: 1.15;
+    }
+
+    footer {
+      padding: 60px 0;
+      color: rgba(255,255,255,0.35);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    footer nav a:hover {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">
+          Systems Biology · Machine Learning
+        </p>
+
+        <h1>RéseauFlux</h1>
+
+        <p class="subtitle">
+          ML-guided ranking of metabolic interventions in genome-scale
+          <i>Escherichia coli</i> models using COBRApy and flux balance analysis.
+        </p>
+
+        <div class="tags">
+          <div class="tag">COBRApy</div>
+          <div class="tag">FBA</div>
+          <div class="tag">Gradient Boosting</div>
+          <div class="tag">Genome-Scale Models</div>
+          <div class="tag">Metabolic Engineering</div>
+        </div>
+
+        <div class="buttons">
+          <a class="btn primary" href="https://github.com/Daxlia/ReseauFlux" target="_blank">
+            GitHub Repository
+          </a>
+
+          <a class="btn secondary" href="https://github.com/Daxlia/ReseauFlux/tree/main/Results" target="_blank">
+            View Results*
+          </a>
+        </div>
+
+        <p class="note">
+          * Results shown on this page correspond to a representative run generated with seed 42.
+          Due to randomized components in training and intervention sampling, exact rankings and metrics may vary slightly across executions.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <p class="eyebrow">Abstract</p>
+
+        <h2 class="section-title">
+          ML-guided metabolic intervention ranking
+        </h2>
+
+        <p class="abstract">
+          RéseauFlux is a machine learning pipeline designed to rank metabolic interventions across genome-scale metabolic models without requiring exhaustive flux balance analysis for every candidate reaction. The framework combines feature extraction, graph topology, flux variability analysis, and gradient boosting regression to predict high-impact interventions for aerobic succinate overproduction in <i>E. coli</i>.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <p class="eyebrow">Results</p>
+
+        <h2 class="section-title">Experimental Summary</h2>
+
+        <div class="cards">
+          <div class="card">
+            <small>ATPS4rpp KO</small>
+            <h3>16.38</h3>
+            <p>mmol/gDW/h succinate</p>
+            <div class="caption">#1 ranked intervention</div>
+          </div>
+
+          <div class="card">
+            <small>Holdout ρ</small>
+            <h3>0.602</h3>
+            <p>unseen reaction groups</p>
+            <div class="caption">generalization performance</div>
+          </div>
+
+          <div class="card">
+            <small>ATPM KO + O2tex KO</small>
+            <h3>16.80</h3>
+            <p>mmol/gDW/h succinate</p>
+            <div class="caption">best double intervention</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <p class="eyebrow">Pipeline</p>
+
+        <h2 class="section-title">
+          Genome-scale workflow architecture
+        </h2>
+
+        <div class="pipeline">
+          <div class="step">1. iJO1366 Genome-Scale Model</div>
+          <div class="step">2. Feature Extraction + FVA</div>
+          <div class="step">3. Gradient Boosting Regression</div>
+          <div class="step">4. Genome-Scale Intervention Ranking</div>
+          <div class="step">5. FBA Validation</div>
+          <div class="step">6. Monte Carlo Robustness</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <p class="eyebrow">Visualization</p>
+
+        <h2 class="section-title">
+          11-panel experimental summary
+        </h2>
+
+        <div class="results-image">
+          <img
+            src="https://raw.githubusercontent.com/Daxlia/ReseauFlux/refs/heads/main/Results/results_summary.png"
+            alt="RéseauFlux results summary"
+          />
+
+          <div class="overlay">
+            <h3>
+              Genome-scale metabolic intervention ranking and FBA validation
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="container">
+      <div>
+        RéseauFlux · Daxlia · Site created with the assistance of ChatGPT
+      </div>
+
+      <nav>
+        <a href="https://github.com/Daxlia/ReseauFlux" target="_blank">GitHub</a>
+        <a href="https://github.com/Daxlia/ReseauFlux/tree/main/Results" target="_blank">Results</a>
+      </nav>
+    </footer>
+  </main>
+</body>
+</html>
