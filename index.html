@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RéseauFlux — ML-Guided Metabolic Engineering | COBRApy + FBA</title>
+  <title>RéseauFlux — ML-Guided Metabolic Engineering</title>
 
   <meta
     name="description"
@@ -33,6 +33,8 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="canonical" href="https://daxlia.github.io/ReseauFlux/" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
   <script type="application/ld+json">
   {
@@ -47,6 +49,8 @@
     "applicationCategory": "Bioinformatics",
     "description": "ML-guided ranking of metabolic interventions in genome-scale E. coli models using COBRApy and flux balance analysis.",
     "codeRepository": "https://github.com/Daxlia/ReseauFlux",
+    "url": "https://daxlia.github.io/ReseauFlux/",
+    "image": "https://raw.githubusercontent.com/Daxlia/ReseauFlux/main/Results/results_summary.png",
     "keywords": [
       "bioinformatics",
       "metabolic engineering",
@@ -300,12 +304,19 @@
           Systems Biology · Machine Learning
         </p>
 
-        <h1>RéseauFlux</h1>
+        <h1>RéseauFlux — ML-Guided Metabolic Intervention Ranking</h1>
 
         <p class="subtitle">
           ML-guided ranking of metabolic interventions in genome-scale
           <i>Escherichia coli</i> models using COBRApy and flux balance analysis.
         </p>
+
+        <nav class="tags">
+          <a class="tag" href="#abstract">Abstract</a>
+          <a class="tag" href="#results">Results</a>
+          <a class="tag" href="#pipeline">Pipeline</a>
+          <a class="tag" href="#visualization">Visualization</a>
+        </nav>
 
         <div class="tags">
           <div class="tag">COBRApy</div>
@@ -316,11 +327,11 @@
         </div>
 
         <div class="buttons">
-          <a class="btn primary" href="https://github.com/Daxlia/ReseauFlux" target="_blank">
+          <a class="btn primary" href="https://github.com/Daxlia/ReseauFlux" target="_blank" rel="noopener noreferrer">
             GitHub Repository
           </a>
 
-          <a class="btn secondary" href="https://github.com/Daxlia/ReseauFlux/tree/main/Results" target="_blank">
+          <a class="btn secondary" href="https://github.com/Daxlia/ReseauFlux/tree/main/Results" target="_blank" rel="noopener noreferrer">
             View Results*
           </a>
         </div>
@@ -332,7 +343,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="abstract">
       <div class="container">
         <p class="eyebrow">Abstract</p>
 
@@ -341,12 +352,14 @@
         </h2>
 
         <p class="abstract">
-          RéseauFlux is a machine learning pipeline designed to rank metabolic interventions across genome-scale metabolic models without requiring exhaustive flux balance analysis for every candidate reaction. The framework combines feature extraction, graph topology, flux variability analysis, and gradient boosting regression to predict high-impact interventions for aerobic succinate overproduction in <i>E. coli</i>.
+          RéseauFlux is a machine learning pipeline designed to rank metabolic interventions across genome-scale metabolic models without requiring exhaustive flux balance analysis for every candidate reaction. The framework combines feature extraction, graph topology, flux variability analysis, and gradient boosting regression to predict high-impact interventions for aerobic succinate overproduction in <i>E. coli</i>. The project explores whether machine learning models can generalize intervention ranking across unseen reactions while preserving biologically meaningful metabolic behavior. The workflow integrates COBRApy-based simulations, robustness analysis, pathway-level interpretation, Monte Carlo perturbation experiments, and multi-objective growth-production tradeoff evaluation.
+          <br><br>
+          The current implementation focuses on genome-scale <i>E. coli</i> metabolism using the iJO1366 reconstruction and evaluates candidate knockouts through ML-assisted prioritization followed by targeted FBA validation. The objective is not to replace mechanistic modeling, but to reduce the computational burden of large-scale intervention screening while maintaining biologically interpretable results.
         </p>
       </div>
     </section>
 
-    <section>
+    <section id="results">
       <div class="container">
         <p class="eyebrow">Results</p>
 
@@ -377,7 +390,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="pipeline">
       <div class="container">
         <p class="eyebrow">Pipeline</p>
 
@@ -396,7 +409,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="visualization">
       <div class="container">
         <p class="eyebrow">Visualization</p>
 
@@ -407,7 +420,7 @@
         <div class="results-image">
           <img
             src="https://raw.githubusercontent.com/Daxlia/ReseauFlux/refs/heads/main/Results/results_summary.png"
-            alt="RéseauFlux results summary"
+            alt="Genome-scale metabolic engineering benchmark and FBA validation plots generated by RéseauFlux"
           />
 
           <div class="overlay">
@@ -425,8 +438,8 @@
       </div>
 
       <nav>
-        <a href="https://github.com/Daxlia/ReseauFlux" target="_blank">GitHub</a>
-        <a href="https://github.com/Daxlia/ReseauFlux/tree/main/Results" target="_blank">Results</a>
+        <a href="https://github.com/Daxlia/ReseauFlux" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/Daxlia/ReseauFlux/tree/main/Results" target="_blank" rel="noopener noreferrer">Results</a>
       </nav>
     </footer>
   </main>
